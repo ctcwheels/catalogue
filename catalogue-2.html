@@ -127,6 +127,8 @@ footer { color:var(--muted); font-size:12.5px; line-height:1.6; padding:20px 16p
     sel.onchange = function () { pcd = sel.value; draw(); };
     qi.oninput = qi.onkeyup = function () { q = qi.value.replace(/^\s+|\s+$/g, '').toUpperCase(); draw(); };
     fillPcd();
+    var hs=(location.hash||'').replace('#','');
+    if(hs){var hb=chips.querySelector('button[data-s="'+hs+'"]');if(hb){hb.click();var sec=document.querySelector('#list section[data-d="'+hs+'"]');if(sec&&sec.scrollIntoView)sec.scrollIntoView();}}
   } catch (err) { /* list is already on the page; filters just stay hidden */ document.documentElement.className = document.documentElement.className.replace(' js', ''); }
 })();
 </script>
